@@ -35,8 +35,8 @@ const Books = () => {
 
   useEffect(() => {
     if (search.length) {
-      const arr = data.results?.books.find((item) =>
-        item.title.includes(search)
+      const arr = data.results?.books.filter((item) =>
+        item["title"].toLowerCase().includes(search.toLowerCase())
       );
       setFinish(arr);
     } else setFinish(data.results?.books);

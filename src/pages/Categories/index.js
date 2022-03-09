@@ -30,10 +30,11 @@ const Categories = () => {
   );
   useEffect(() => {
     if (search.length) {
-      const data = categories.results.find((item) =>
-        item.list_name.includes(search)
+      const arr = categories.results.filter((item) =>
+        item["list_name"].toLowerCase().includes(search.toLowerCase())
       );
-      setFinish(data);
+      console.log(arr, "nima");
+      setFinish(arr);
     } else setFinish(categories.results);
   }, [categories, search]);
   const _ = require("lodash");
